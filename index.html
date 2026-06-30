@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Crimson Alters</title>
+  <link rel="icon" type="image/png" href="ver.png">
 
   <style>
     :root {
@@ -17,7 +18,6 @@
       --line: rgba(255, 255, 255, 0.1);
       --card: rgba(255, 255, 255, 0.045);
       --card-border: rgba(255, 255, 255, 0.12);
-      --glow: rgba(201, 31, 58, 0.45);
     }
 
     * {
@@ -92,45 +92,11 @@
       letter-spacing: 0.2px;
     }
 
-    .mark {
-      width: 28px;
-      height: 38px;
-      position: relative;
-      display: inline-block;
-      filter: drop-shadow(0 0 12px rgba(255, 45, 78, 0.35));
-    }
-
-    .mark::before,
-    .mark::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%) rotate(45deg);
-      border: 2px solid var(--crimson-light);
-    }
-
-    .mark::before {
-      width: 20px;
-      height: 20px;
-      top: 2px;
-    }
-
-    .mark::after {
-      width: 12px;
-      height: 12px;
-      top: 10px;
-      border-color: rgba(255, 255, 255, 0.6);
-    }
-
-    .mark span {
-      position: absolute;
-      left: 50%;
-      top: 4px;
-      transform: translateX(-50%);
-      width: 2px;
-      height: 30px;
-      background: var(--crimson-light);
-      border-radius: 999px;
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 12px rgba(255, 45, 78, 0.45));
     }
 
     nav {
@@ -158,7 +124,7 @@
     }
 
     .hero {
-      min-height: 620px;
+      min-height: 640px;
       position: relative;
       display: grid;
       grid-template-columns: 1fr 0.95fr;
@@ -276,158 +242,63 @@
     .hero-art {
       position: relative;
       z-index: 2;
-      min-height: 470px;
+      min-height: 540px;
     }
 
-    .card-stack {
-      position: absolute;
-      width: 330px;
-      height: 460px;
-      right: 12%;
-      top: 4%;
-      perspective: 1000px;
+    .real-card-stack {
+      position: relative;
+      width: 560px;
+      height: 560px;
+      margin-left: auto;
     }
 
-    .magic-card {
+    .real-card-stack img {
       position: absolute;
-      width: 300px;
-      height: 420px;
+      width: 315px;
       border-radius: 18px;
-      padding: 13px;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,0.14), transparent 20%),
-        linear-gradient(135deg, #141010, #040404);
-      border: 1px solid rgba(255, 61, 93, 0.35);
       box-shadow:
         0 28px 70px rgba(0, 0, 0, 0.8),
-        0 0 38px rgba(201, 31, 58, 0.25);
-      overflow: hidden;
+        0 0 38px rgba(201, 31, 58, 0.28);
+      border: 1px solid rgba(255, 61, 93, 0.28);
+      background: #050506;
+      transition: 0.25s ease;
     }
 
-    .magic-card:nth-child(1) {
-      right: 160px;
-      top: 42px;
-      transform: rotate(8deg) scale(0.9);
-      opacity: 0.72;
-      background:
-        linear-gradient(135deg, rgba(132, 61, 183, 0.24), transparent 45%),
-        #08070a;
+    .real-card-stack img:hover {
+      transform: translateY(-8px) scale(1.02);
+      z-index: 10;
     }
 
-    .magic-card:nth-child(2) {
-      right: 82px;
-      top: 18px;
-      transform: rotate(4deg) scale(0.94);
-      opacity: 0.85;
-      background:
-        linear-gradient(135deg, rgba(212, 172, 92, 0.2), transparent 48%),
-        #080706;
+    .real-card-stack img:nth-child(1) {
+      right: 200px;
+      top: 88px;
+      transform: rotate(-10deg) scale(0.9);
+      opacity: 0.78;
     }
 
-    .magic-card:nth-child(3) {
+    .real-card-stack img:nth-child(1):hover {
+      transform: rotate(-10deg) translateY(-8px) scale(0.94);
+    }
+
+    .real-card-stack img:nth-child(2) {
+      right: 100px;
+      top: 48px;
+      transform: rotate(5deg) scale(0.94);
+      opacity: 0.9;
+    }
+
+    .real-card-stack img:nth-child(2):hover {
+      transform: rotate(5deg) translateY(-8px) scale(0.98);
+    }
+
+    .real-card-stack img:nth-child(3) {
       right: 0;
       top: 0;
       transform: rotate(-4deg);
     }
 
-    .card-title {
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 10px;
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 8px;
-      background: rgba(0,0,0,0.45);
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 700;
-      font-size: 1rem;
-    }
-
-    .mana {
-      display: flex;
-      gap: 4px;
-    }
-
-    .mana span {
-      width: 18px;
-      height: 18px;
-      display: inline-grid;
-      place-items: center;
-      border-radius: 50%;
-      background: #d7c7b4;
-      color: #160d0d;
-      font-size: 0.72rem;
-      font-weight: 900;
-    }
-
-    .card-image {
-      height: 210px;
-      margin: 10px 0;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background:
-        radial-gradient(circle at 52% 33%, rgba(255, 46, 80, 0.95), transparent 18%),
-        radial-gradient(circle at center, rgba(201, 31, 58, 0.45), transparent 48%),
-        linear-gradient(160deg, #1b060a, #050505 60%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card-image::before {
-      content: "";
-      position: absolute;
-      width: 110px;
-      height: 190px;
-      left: 92px;
-      bottom: -12px;
-      background:
-        linear-gradient(#111, #030303);
-      clip-path: polygon(50% 0, 72% 18%, 82% 58%, 100% 100%, 0 100%, 18% 58%, 28% 18%);
-      filter: drop-shadow(0 0 22px rgba(0,0,0,0.9));
-    }
-
-    .card-image::after {
-      content: "";
-      position: absolute;
-      width: 4px;
-      height: 155px;
-      left: 150px;
-      bottom: 28px;
-      background: linear-gradient(to bottom, #f4dddd, #b30e25);
-      transform: rotate(-35deg);
-      box-shadow: 0 0 16px rgba(255,61,93,0.6);
-    }
-
-    .card-type,
-    .card-text {
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(0,0,0,0.5);
-      border-radius: 8px;
-      padding: 8px 10px;
-      font-size: 0.82rem;
-    }
-
-    .card-type {
-      font-family: Georgia, "Times New Roman", serif;
-      margin-bottom: 10px;
-    }
-
-    .card-text {
-      height: 105px;
-      color: #d9cfcf;
-      line-height: 1.35;
-    }
-
-    .power {
-      position: absolute;
-      right: 20px;
-      bottom: 18px;
-      padding: 4px 10px;
-      border-radius: 7px;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(0,0,0,0.75);
-      font-weight: 800;
+    .real-card-stack img:nth-child(3):hover {
+      transform: rotate(-4deg) translateY(-8px) scale(1.04);
     }
 
     .sections {
@@ -479,24 +350,16 @@
       box-shadow: 0 16px 34px rgba(0,0,0,0.35);
     }
 
-    .thumb {
-      height: 132px;
+    .work-image {
+      width: 100%;
+      height: 280px;
+      display: block;
+      object-fit: contain;
+      padding: 12px;
       background:
-        radial-gradient(circle at center, rgba(201, 31, 58, 0.75), transparent 35%),
-        linear-gradient(135deg, #29040b, #050505);
+        radial-gradient(circle at center, rgba(201, 31, 58, 0.16), transparent 60%),
+        #050506;
       border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .work-card:nth-child(2) .thumb {
-      background:
-        radial-gradient(circle at center, rgba(216, 179, 101, 0.6), transparent 38%),
-        linear-gradient(135deg, #29210f, #050505);
-    }
-
-    .work-card:nth-child(3) .thumb {
-      background:
-        radial-gradient(circle at center, rgba(135, 70, 190, 0.7), transparent 40%),
-        linear-gradient(135deg, #19052b, #050505);
     }
 
     .work-body {
@@ -593,6 +456,13 @@
       font-weight: 700;
     }
 
+    .footer-logo {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(255, 45, 78, 0.35));
+    }
+
     .footer-links {
       display: flex;
       gap: 16px;
@@ -614,13 +484,11 @@
       }
 
       .hero-art {
-        min-height: 420px;
+        min-height: 520px;
       }
 
-      .card-stack {
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%);
+      .real-card-stack {
+        margin: 0 auto;
       }
 
       .sections {
@@ -661,7 +529,32 @@
       }
 
       .hero-art {
-        display: none;
+        min-height: 440px;
+        margin-top: 20px;
+      }
+
+      .real-card-stack {
+        width: 320px;
+        height: 430px;
+      }
+
+      .real-card-stack img {
+        width: 210px;
+      }
+
+      .real-card-stack img:nth-child(1) {
+        right: 115px;
+        top: 80px;
+      }
+
+      .real-card-stack img:nth-child(2) {
+        right: 58px;
+        top: 42px;
+      }
+
+      .real-card-stack img:nth-child(3) {
+        right: 0;
+        top: 0;
       }
 
       .sections,
@@ -674,6 +567,10 @@
       .work-grid,
       .steps {
         grid-template-columns: 1fr;
+      }
+
+      .work-image {
+        height: 360px;
       }
 
       .support {
@@ -692,7 +589,7 @@
   <div class="page">
     <header>
       <div class="brand">
-        <span class="mark"><span></span></span>
+        <img class="brand-logo" src="ver.png" alt="Crimson Alters logo">
         Crimson Alters
       </div>
 
@@ -730,53 +627,10 @@
         </div>
 
         <div class="hero-art" aria-hidden="true">
-          <div class="card-stack">
-            <div class="magic-card">
-              <div class="card-title">
-                Crimson Veil
-                <div class="mana"><span>2</span><span>✦</span></div>
-              </div>
-              <div class="card-image"></div>
-              <div class="card-type">Enchantment — Alter</div>
-              <div class="card-text">
-                A custom vision shaped by color, atmosphere and frame design.
-              </div>
-              <div class="power">2/3</div>
-            </div>
-
-            <div class="magic-card">
-              <div class="card-title">
-                New Dawn
-                <div class="mana"><span>3</span><span>✦</span></div>
-              </div>
-              <div class="card-image"></div>
-              <div class="card-type">Legendary Design</div>
-              <div class="card-text">
-                Original layouts, fanmade concepts and collectible-style art.
-              </div>
-              <div class="power">3/3</div>
-            </div>
-
-            <div class="magic-card">
-              <div class="card-title">
-                Obsidian Sovereign
-                <div class="mana"><span>3</span><span>R</span><span>B</span></div>
-              </div>
-
-              <div class="card-image"></div>
-
-              <div class="card-type">
-                Legendary Creature — Human Knight
-              </div>
-
-              <div class="card-text">
-                <strong>Menace</strong><br>
-                Whenever a creature an opponent controls dies, you may draw a card.
-                <br><em>All kneel, or all fall.</em>
-              </div>
-
-              <div class="power">4/4</div>
-            </div>
+          <div class="real-card-stack">
+            <img src="Proxy-credito-correto.png" alt="">
+            <img src="Hent-Cyrene.png" alt="">
+            <img src="Leona-Outra.png" alt="">
           </div>
         </div>
       </section>
@@ -790,26 +644,26 @@
 
           <div class="work-grid">
             <article class="work-card">
-              <div class="thumb"></div>
+              <img class="work-image" src="Leona-Custom.png" alt="Leona custom card">
               <div class="work-body">
-                <h3>Blood Moon Tyrant</h3>
-                <p>Digital Alter</p>
-              </div>
-            </article>
-
-            <article class="work-card">
-              <div class="thumb"></div>
-              <div class="work-body">
-                <h3>Seraph of New Dawn</h3>
+                <h3>Leona Custom</h3>
                 <p>Custom Design</p>
               </div>
             </article>
 
             <article class="work-card">
-              <div class="thumb"></div>
+              <img class="work-image" src="Hent-Phainon.png" alt="Hent Phainon card">
               <div class="work-body">
-                <h3>Voidspire Ritual</h3>
-                <p>Original Layout</p>
+                <h3>Hent Phainon</h3>
+                <p>Digital Alter</p>
+              </div>
+            </article>
+
+            <article class="work-card">
+              <img class="work-image" src="Hent-Phainon2.png" alt="Hent Phainon alternate card">
+              <div class="work-body">
+                <h3>Hent Phainon II</h3>
+                <p>Digital Alter</p>
               </div>
             </article>
           </div>
@@ -859,7 +713,7 @@
 
     <footer>
       <div class="footer-brand">
-        <span class="mark"><span></span></span>
+        <img class="footer-logo" src="ver.png" alt="Crimson Alters logo">
         Crimson Alters
       </div>
 
