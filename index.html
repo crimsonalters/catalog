@@ -1,12 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Crimson Alters</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background: radial-gradient(circle at top, #331019 0%, #0b0b0f 45%, #050506 100%);
+      color: #f5f0ed;
+    }
+
+    header {
+      padding: 28px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      color: #d8c7c7;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    .hero {
+      padding: 90px 8% 70px;
+      max-width: 1100px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 999px;
+      color: #e9b7b7;
+      font-size: 0.85rem;
+      letter-spacing: 0.4px;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(2.8rem, 7vw, 6.5rem);
+      line-height: 0.95;
+      margin-bottom: 26px;
+    }
+
+    .hero p {
+      max-width: 620px;
+      color: #c7bcbc;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 34px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .primary {
+      background: #b91c36;
+      color: white;
+    }
+
+    .primary:hover {
+      background: #d72645;
+    }
+
+    .secondary {
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #f5f0ed;
+    }
+
+    .secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .section {
+      padding: 50px 8%;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 22px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      max-width: 1100px;
+    }
+
+    .card {
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(8px);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .card p {
+      color: #c7bcbc;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      padding: 40px 8%;
+      color: #8f8585;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 50px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 16px;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Crimson Alters</h1>
-  <p>Digital MTG-inspired alters, custom cards and original content.</p>
+  <header>
+    <div class="logo">Crimson Alters</div>
+
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#commissions">Commissions</a>
+      <a href="https://www.instagram.com/crimsonalters/" target="_blank">Instagram</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="tag">Digital card alters · Custom designs · Original content</span>
+
+      <h1>Custom cards with a crimson touch.</h1>
+
+      <p>
+        Digital MTG-inspired alters, custom cards and novelty designs created for collectors,
+        players and people who enjoy unique card art.
+      </p>
+
+      <div class="buttons">
+        <a class="button primary" href="https://www.instagram.com/crimsonalters/" target="_blank">View on Instagram</a>
+        <a class="button secondary" href="#commissions">Request a commission</a>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <h2>What I create</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>MTG-inspired alters</h3>
+          <p>Digital alter concepts inspired by card frames, fantasy themes and custom visual styles.</p>
+        </div>
+
+        <div class="card">
+          <h3>Custom cards</h3>
+          <p>Personalized novelty cards made for fun, gifts, collections or social media posts.</p>
+        </div>
+
+        <div class="card">
+          <h3>Original layouts</h3>
+          <p>Experimental card frames, fanmade designs and visual concepts created from scratch.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="commissions">
+      <h2>Commissions</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>How it works</h3>
+          <p>Send your idea, references and the type of card design you want. Each request is discussed before payment.</p>
+        </div>
+
+        <div class="card">
+          <h3>Contact</h3>
+          <p>For now, commissions and questions can be sent through Instagram: @crimsonalters.</p>
+        </div>
+
+        <div class="card">
+          <h3>Support</h3>
+          <p>Buy Me a Coffee support link coming soon.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Crimson Alters — digital MTG-inspired alters, custom cards and original content.
+  </footer>
 </body>
 </html>
