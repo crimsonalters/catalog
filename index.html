@@ -250,6 +250,7 @@
       width: 690px;
       height: 560px;
       margin-left: auto;
+      isolation: isolate;
     }
 
     .real-card-stack img {
@@ -262,11 +263,19 @@
       border: 1px solid rgba(255, 61, 93, 0.28);
       background: #050506;
       opacity: 1;
-      transition: 0.25s ease;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+      cursor: pointer;
     }
 
     .real-card-stack img:hover {
-      z-index: 20;
+      z-index: 99 !important;
+      box-shadow:
+        0 34px 90px rgba(0, 0, 0, 0.95),
+        0 0 55px rgba(255, 61, 93, 0.42);
+      filter: brightness(1.08);
     }
 
     .real-card-stack img:nth-child(1) {
@@ -277,7 +286,7 @@
     }
 
     .real-card-stack img:nth-child(1):hover {
-      transform: rotate(-11deg) translateY(-8px) scale(0.94);
+      transform: rotate(-11deg) translateY(-18px) scale(1.02);
     }
 
     .real-card-stack img:nth-child(2) {
@@ -288,7 +297,7 @@
     }
 
     .real-card-stack img:nth-child(2):hover {
-      transform: rotate(5deg) translateY(-8px) scale(0.99);
+      transform: rotate(5deg) translateY(-18px) scale(1.06);
     }
 
     .real-card-stack img:nth-child(3) {
@@ -299,7 +308,7 @@
     }
 
     .real-card-stack img:nth-child(3):hover {
-      transform: rotate(-4deg) translateY(-8px) scale(1.04);
+      transform: rotate(-4deg) translateY(-18px) scale(1.07);
     }
 
     .sections {
